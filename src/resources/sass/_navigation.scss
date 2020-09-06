@@ -4,7 +4,7 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
 
-@media (max-width: 768px) {
+@include media-breakpoint-down(lg) {
     #sidebar {
         margin-left: -250px;
     }

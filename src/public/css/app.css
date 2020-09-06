@@ -10903,7 +10903,7 @@ a.text-dark:focus {
     ADDITIONAL DEMO STYLE, NOT IMPORTANT TO MAKE THINGS WORK BUT TO MAKE IT A BIT NICER :)
 */
 
-@media (max-width: 768px) {
+@media (max-width: 1199.98px) {
   #sidebar {
     margin-left: -250px;
   }

@@ -9,6 +9,8 @@
 
     @if($showMask)
         @livewire('player-mask')
+    @else
+        <button wire:click="$set('showMask', true)" class="btn btn-primary btn-block">Add</button>
     @endif
 
 
