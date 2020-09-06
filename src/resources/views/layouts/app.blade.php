@@ -13,25 +13,15 @@
 
 <div class="wrapper">
     <nav id="sidebar">
-        @include('navigation')
-
-
+        @livewire('navigation')
     </nav>
     <div id="content" class="container-fluid">
-
-        <div class="row">
-            <div class="col-sm">1</div>
-            <div class="col-sm">2</div>
-            <div class="col-sm">3</div>
-            <div class="col-sm">4</div>
-            <div class="col-sm">5</div>
-
-        </div>
+        <header>
+            <h1>Welcome to tschutter</h1>
+        </header>
         @yield('content')
-
     </div>
 </div>
 @livewireScripts
-
 </body>
 </html>
