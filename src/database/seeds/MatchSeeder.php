@@ -27,7 +27,7 @@ class MatchSeeder extends Seeder
 
         $m2 = \App\Match::create([
             'points_one' => 4,
-            'points_two' => 2
+            'points_two' => 9
         ]);
 
         $m2->users()->save($users[2], ['team' => 1]);

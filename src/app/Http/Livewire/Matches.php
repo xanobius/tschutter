@@ -2,16 +2,34 @@
 
 namespace App\Http\Livewire;
 
+use App\Match;
 use Livewire\Component;
 
 class Matches extends Component
 {
     public $active = false;
-    public $dings = 'What?';
+    public $showMask = false;
+    public $matches = [];
 
     protected $listeners = [
-        'setContentActive' => 'activate'
+        'setContentActive' => 'activate',
+        'closeMask' => 'closeMask',
+        'reload' => 'mount'
     ];
+
+    public function closeMask()
+    {
+        $this->showMask = false;
+    }
+
+    public function mount()
+    {
+        $this->matches = Match::with([
+            'userTeamOne',
+            'userTeamTwo',
+            'users'
+        ])->get();
+    }
 
     public function activate($prm)
     {
