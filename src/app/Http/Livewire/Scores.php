@@ -15,7 +15,8 @@ class Scores extends DashboardTile
     protected $tileBaseOrder = 6;
 
     protected $listeners = [
-        'setContentActive' => 'activate'
+        'setContentActive' => 'activate',
+        'updatedMatches' => '$refresh'
     ];
 
     public function render()

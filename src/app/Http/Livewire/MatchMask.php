@@ -61,6 +61,7 @@ class MatchMask extends Component
             ->each(fn ($u) => $m->users()->save($u, ['team' => 2]));
 
         $this->emitUp('reload');
+        $this->emit('updatedMatches');
         $this->prepareEmpty();
     }
 
