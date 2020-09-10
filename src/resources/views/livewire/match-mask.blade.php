@@ -31,7 +31,7 @@
                 <button class="btn btn-success btn-block">Save</button>
             </div>
             <div class="col-6">
-                <button class="btn btn-danger btn-block" wire:click="cancel">Cancel</button>
+                <button class="btn btn-danger btn-block" wire:click.prevent="cancel">Cancel</button>
             </div>
         </div>
     </form>

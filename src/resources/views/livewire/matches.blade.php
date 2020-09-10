@@ -20,6 +20,6 @@
     @if($showMask)
         @livewire('match-mask')
     @else
-        <button class="btn btn-primary btn-block" wire:click.prevent="$set('showMask', true)">Add</button>
+        <button class="btn btn-primary btn-block" wire:click="$set('showMask', true)">Add</button>
     @endif
 </div>

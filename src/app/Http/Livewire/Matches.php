@@ -3,14 +3,14 @@
 namespace App\Http\Livewire;
 
 use App\Match;
-use Livewire\Component;
 
-class Matches extends Component
+class Matches extends DashboardTile
 {
-    public $active = false;
     public $showMask = false;
     public $matches = [];
-    public $wrapper_classes = 'col-md-5 order-5';
+
+    protected $tileName = 'matches';
+    protected $tileBaseOrder = 5;
 
     protected $listeners = [
         'setContentActive' => 'activate',
@@ -30,17 +30,6 @@ class Matches extends Component
             'userTeamTwo',
             'users'
         ])->get();
-    }
-
-    public function activate($prm)
-    {
-        if ($prm == 'matches') {
-            $this->active = true;
-            $this->wrapper_classes = 'col-md-7 order-1';
-        } else {
-            $this->active = false;
-            $this->wrapper_classes = 'col-md-5 order-5';
-        }
     }
 
     public function render()

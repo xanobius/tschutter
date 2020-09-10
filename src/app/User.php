@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function matches()
+    {
+        return $this->belongsToMany(Match::class, 'match_has_users')
+            ->withPivot('team');
+    }
 }
