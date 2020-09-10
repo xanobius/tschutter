@@ -53,7 +53,8 @@ class MatchMask extends Component
             'points_two' => $this->pointsTwo,
         ]);
 
-        $this->availableOne->filter(fn($u) => in_array($u->id, $this->teamOne))
+        $this->availableOne
+            ->filter(fn($u) => in_array($u->id, $this->teamOne))
             ->each(fn ($u) => $m->users()->save($u, ['team' => 1]));
 
         $this->availableTwo->filter(fn($u) => in_array($u->id, $this->teamTwo))

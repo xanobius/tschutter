@@ -10,6 +10,7 @@ class Matches extends Component
     public $active = false;
     public $showMask = false;
     public $matches = [];
+    public $wrapper_classes = 'col-md-5 order-5';
 
     protected $listeners = [
         'setContentActive' => 'activate',
@@ -35,8 +36,10 @@ class Matches extends Component
     {
         if ($prm == 'matches') {
             $this->active = true;
+            $this->wrapper_classes = 'col-md-7 order-1';
         } else {
             $this->active = false;
+            $this->wrapper_classes = 'col-md-5 order-5';
         }
     }
 

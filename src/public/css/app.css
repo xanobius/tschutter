@@ -10994,3 +10994,8 @@ ul ul a {
   background: #6d7fcc;
 }
 
+div.dashboard div {
+  transition: all 500ms linear;
+  margin-bottom: 2rem;
+}
+
