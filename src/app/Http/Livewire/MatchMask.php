@@ -19,8 +19,6 @@ class MatchMask extends Component
     public $availableOne = null;
     public $availableTwo = null;
 
-    protected $validState = 2;
-
     public function mount()
     {
         $this->availableAll = User::get();
