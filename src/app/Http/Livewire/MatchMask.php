@@ -15,13 +15,17 @@ class MatchMask extends Component
     public $pointsOne = 0;
     public $pointsTwo = 0;
 
+    public $availableAll = null;
     public $availableOne = null;
     public $availableTwo = null;
 
+    protected $validState = 2;
+
     public function mount()
     {
-        $this->availableOne = User::get();
-        $this->availableTwo = clone $this->availableOne;
+        $this->availableAll = User::get();
+        $this->availableOne = clone $this->availableAll;
+        $this->availableTwo = clone $this->availableAll;
     }
 
     public function clearMask()
@@ -53,27 +57,29 @@ class MatchMask extends Component
             'points_two' => $this->pointsTwo,
         ]);
 
+
         $this->availableOne
             ->filter(fn($u) => in_array($u->id, $this->teamOne))
             ->each(fn ($u) => $m->users()->save($u, ['team' => 1]));
 
-        $this->availableTwo->filter(fn($u) => in_array($u->id, $this->teamTwo))
+        $this->availableTwo
+            ->filter(fn($u) => in_array($u->id, $this->teamTwo))
             ->each(fn ($u) => $m->users()->save($u, ['team' => 2]));
 
-        $this->emitUp('reload');
+        $this->emit('reload');
         $this->emit('updatedMatches');
         $this->prepareEmpty();
     }
 
     public function updatedTeamOne()
     {
-        $this->availableTwo = $this->availableTwo
+        $this->availableTwo = $this->availableAll
             ->filter(fn ($u) => ! in_array($u->id,  $this->teamOne));
     }
 
     public function updatedTeamTwo()
     {
-        $this->availableOne = $this->availableOne
+        $this->availableOne = $this->availableAll
             ->filter(fn ($u) => ! in_array($u->id,  $this->teamTwo));
     }
 

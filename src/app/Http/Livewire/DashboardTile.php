@@ -16,7 +16,7 @@ class DashboardTile extends Component
     {
         if ($prm == $this->tileName) {
             $this->active = true;
-            $this->wrapper_classes = 'col-md-7 order-1';
+            $this->wrapper_classes = 'col-md-12 order-1';
         } else {
             $this->active = false;
             $this->wrapper_classes = 'col-md-5 order-' . $this->tileBaseOrder;
